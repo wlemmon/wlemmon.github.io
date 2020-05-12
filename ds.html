@@ -1,0 +1,27 @@
+---
+layout: default
+title: Data Science Articles
+---
+
+<header class="intro">
+    <h1>{{ page.title }}</h1>
+</header>
+
+<div class="case-studies-body">
+    <ul class="listing">
+    {% assign ds = site.ds | sort: 'listing-priority' %}
+    {% for project in ds %}
+        <li >
+        <div class="div-pointer blog-item" style="background-image:url({{ project.img }});" 
+        onclick="location.href='{{ project.url }}'" >
+
+                <div class='blog-item-text'>
+                    <span class='blog-item-title unselectable'>{{ project.title }}</span>
+                    <hr style="width:100%;margin:0">
+                    <span class='blog-item-blurb unselectable'>{{ project.blurb }}</span>
+                </div>
+            </div>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
