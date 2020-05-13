@@ -171,12 +171,12 @@ li {
   padding-bottom: 4em;
   border-bottom: 1px solid #5e5e5e; }
   section:last-child {
-    border-bottom: none; }
-}
+    border-bottom: none; 
+  }
 
 /* pointer cursor for div tags */
 .div-pointer {
-   cursor: pointer !important;
+   cursor: pointer;
 }
 
 .blog-item {
