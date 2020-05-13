@@ -8,7 +8,7 @@ featured: false
 featured-priority:
 listing-priority: 4
 blurb: A Drawing is All You Need.
-img: /assets/img/transformer2.jpg
+img: /assets/img/transformer/transformer2.jpg
 wikipedia-url: https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)
 ---
 
@@ -18,7 +18,7 @@ Jay Alammar put together [an excellent explanation](http://jalammar.github.io/il
 
 Transformers have subsequently been used in other domains like [vision](https://arxiv.org/abs/1502.03044):
 
-<img src="/assets/img/transformer/xu2015-fig6b.png" width="400"/>
+<img src="/assets/img/transformer/transformer/xu2015-fig6b.png" width="400"/>
 
 ### The Diagram
 
