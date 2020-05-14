@@ -49,10 +49,9 @@ summary {
 body {
   color: #5e5e5e;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.475;
+
   font-size: min(max(20px, 1.372vw), 40px);
-  
-  }
+}
 
 p {
   
@@ -124,7 +123,7 @@ ul ul, ul ol, ol ol, ol ul {
   border-top:0;
 }
 [role="banner"] {
-  padding: 1em 0; 
+  padding: min(max(5px, 1.5vw), 15px);
   width:100%;
 }
   [role="banner"] h1 {
@@ -142,7 +141,7 @@ ul ul, ul ol, ol ol, ol ul {
     [role="banner"] .nav-primary li {
       display: inline-block;
       margin-left: 1em;
-      line-height: 2em;
+      
     }
     [role="banner"] .nav-primary ul > li:first-child {
       margin-left: 0;
@@ -196,21 +195,55 @@ ul ul, ul ol, ol ol, ol ul {
 
 .introduction{
   position:absolute;
-  top:130px;
-  left:50px;
-
+  top:min(max(5px, 7vw), 130px);
+  width:100%;
+  
 }
+.introduction-inner{
+  margin:auto;
+  width: min(max(30px, 80vw), 1000px);
+  
+}
+
+.selfie-span{
+  float: right;
+  padding-left:10vw;
+  padding-right:10vw;
+  width:50%;
+}
+.selfie-img{
+  border-radius: 50%;
+  width:100%;
+  filter: drop-shadow(0px 5px 3px black);
+}
+
 .beanz{
   position:absolute;
   top:min(110vh, 70vw);
 }
+.clearfix::after { 
+   content: " ";
+   display: block; 
+   height: 0; 
+   clear: both;
+}
+
 .intro-text{
+  font-size: min(max(40px, 2vw), 14px);
   font-family: Cantarell,sans-serif;
+  width:50%;
+}
+
+.intro-text p{
+  font-size: min(max(14px, 2vw), 40px);
 }
 
 .intro-text h1{
-  font-family: Cantarell,sans-serif;
-  font-size: 2em;
+  font-size: min(max(14px, 2vw), 40px);
+}
+
+.intro-text h3{
+  font-size: min(max(14px, 2vw), 30px);
 }
 
 @font-face {
@@ -219,14 +252,14 @@ ul ul, ul ol, ol ol, ol ul {
 }
 
 ul.social{
-  
+  margin:0;
 }
 ul.social li{
   display:inline;
 }
 ul.social li a i{
   color:inherit;
-  font-size: 2em;
+  font-size: font-size: min(max(14px, 2vw), 40px);
   font-face { font-family: "Ionicons"; font-size:2em;size:"large"}
 }
 
@@ -237,6 +270,7 @@ ul.social li a i{
   font-family: Cantarell,sans-serif;
   text-transform: uppercase;
   border-bottom:none;
+  font-size:min(max(12px, 1.5vw), 24px);
 }
   
 
