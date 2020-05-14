@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% assign architect = site.people | where: "object-id", page.architect-id  | first %}
+
+<header class="intro">
+    <h1>{{ page.title }}</h1>
+</header>
+
+<div class="case-studies-body">
+    <ul class="listing">
+    {% assign pl = site[page.project_list] | sort: 'listing-priority' %}
+    {% for project in pl %}
+        <li class="div-pointer blog-item" onclick="location.href='{{ project.url }}'" >
+            <div class="blog-item-text">
+                <span class="blog-item-title unselectable">{{ project.title }}</span>
+                <hr style="width:100%;margin:0">
+                <span class="blog-item-blurb unselectable">{{ project.blurb }}</span>
+            </div>
+            <img src="{{ project.img }}" class="blog-item-img"/>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
