@@ -18,13 +18,13 @@ Jay Alammar put together [an excellent explanation](http://jalammar.github.io/il
 
 Transformers have subsequently been used in other domains like [vision](https://arxiv.org/abs/1502.03044):
 
-<img src="/assets/img/transformer/xu2015-fig6b.png" width="400"/>
+<img class="blog-img" src="/assets/img/transformer/xu2015-fig6b.png" width="400"/>
 
 ### The Diagram
 
 I wanted to add my two cents to what has already been written. Personally, I benefit most from very detailed, complete diagrams, which is one reason I feel that the [original paper](https://arxiv.org/abs/1706.03762) is a bit dense. Even The illustrated transformer takes 30 minutes to get through despite it being one of the clearest explanations I have found. So, I put this diagram together to illucidate what is going on, but in a single picture, digestible as quickly as you can look through a single picture. Hopefully you too find it helpful.
 
-<img src="/assets/img/transformer/transformer.jpg" width="900"/>
+<img class="blog-img" src="/assets/img/transformer/transformer.jpg" width="900"/>
 
 N.B. You will need a bit of background, though, e.g. read some of the original paper, know about sequence to sequence and word embeddings, etc. to get what is going on.
 
@@ -50,11 +50,11 @@ Aren't all-in-one diagrams great?
     = p( y(t) | x(1), x(2), ... x(t), h(t-1), y(t-1))
     = p( y(t) | h(t-1), y(t-1)) (in the case with encoder/decoders.
 > </pre>
-> <img src="/assets/img/transformer/rnn.jpg" width="500px"/>
+> <img class="blog-img" src="/assets/img/transformer/rnn.jpg" width="500px"/>
 >
 > (portion of RNN computation graph. Deep Learning (Ian J. Goodfellow, Yoshua Bengio and Aaron Courville), MIT Press, 2016.)
 >
-> <img src="/assets/img/transformer/encoderdecoder.jpg" width="500px"/>
+> <img class="blog-img" src="/assets/img/transformer/encoderdecoder.jpg" width="500px"/>
 >
 > (encoder/decoder computation graph. Deep Learning (Ian J. Goodfellow, Yoshua Bengio and Aaron Courville), MIT Press, 2016.)
 >

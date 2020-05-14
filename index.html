@@ -1,63 +1,131 @@
 ---
-layout: default
 title: Home
-nav-area: home
 ---
 
-<section class="presentation">
-  <div class="introduction">
-    <div class="intro-text">
-      <h1>Warren Lemmon</h1>
-      <p>
-        <br>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/ionicons.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cantarell">
+  
+  <script src="/js/jquery.js"></script>
+  <script src="/js/jQuery.scrollspeed.js"></script>
+  <!--<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>-->
+  <script src="/js/jquery.stellar.min.js"></script>
+  <script>
+
+
+$( document ).ready(function() {
+    jQuery.noConflict();
+    jQuery("#boo").stellar({responsive:true,
+                            horizontalScrolling: true});
+    
+    
+    jQuery(window).scroll(function(e) {
+    //add/remove class to navbar when scrolling to hide/show
+   var scroll = jQuery(window).scrollTop();
+   if (scroll >= 100) {
+   jQuery('.navbar-fixed-top').addClass("bg-nav");
+   } else {
+     jQuery('.navbar-fixed-top').removeClass("bg-nav");
+   }
+   });
+
+
+ 
+    // Default
+    //jQuery.scrollSpeed(10, 1000);
+    
+    // Custom Easing
+    // jQuery.scrollSpeed(100, 800, 'easeOutCubic');
+    
+    
+
+}); 
+
+
+</script>
+</head>
+{% assign bgratio = 2 %}
+<body id="boo" data-stellar-background-ratio="{{ bgratio }}" class="home-body">
+
+<header role="banner" class='navbar-fixed-top' >
+  <div class="container">
+    <!-- <h1><a href="/" class="nav-home">Example Co.</a></h1> -->
+    <!-- <nav class="nav-primary"> -->
+    <nav class="nav-primary">
+      <ul>
+        <li><a class='header-link' href="/">About</a></li>
+        <li><a class='header-link' href="/ds">DS</a></li>
+        <li><a class='header-link' href="/cs">CS</a></li>
+        <li><a class='header-link' href="/ml">ML</a></li>
+        <li><a class='header-link' href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+  </div><!-- end of div.container -->
+</header><!-- end of header[role=banner] -->
+
+<div role="main">
+  <div class="home-container">
+
+
+    <section class="presentation">
+      
+      <div class="introduction" data-stellar-ratio="0.4">
+        <div class="intro-text">
+          <h1>Warren Lemmon</h1>
           <br>
-          </p>
           <p>
-          Software Engineer | Machine Learning Engineer | Data Scientist
+          Software Engineer<br>Machine Learning Engineer<br>Data Scientist
           <br>
           MS in Artificial Intelligence and Machine Learning.
           <br>
           I <ion-icon name="heart"></ion-icon> Seattle.
           </p>
         </div>
-        <div class="btn">
-<!--
-          <a target="_blank" href="https://www.linkedin.com/in/joel-pires-7919b9102/">
-            <img style="width:6%; margin-right: 3%" src="assets/ico/linkedin.png" id="linkedin" title="LinkedIn"/>
-          </a>
-          <a target="_blank" href="https://github.com/joelpires" title="Github">
-            <img style="width:6%; margin-right: 3%" src="assets/ico/github.png"/>
-          </a>
-          <a target="_blank" href="https://kaggle.com/joelpires" title="Kaggle">
-            <img style="width:6%; margin-right: 3%" src="assets/ico/kaggle.png"/>
-          </a>
-          <a target="_blank" href="https://leetcode.com/joelpires" title="Leetcode">
-            <img style="width:6%; margin-right: 3%" src="assets/ico/leetcode.png"/>
-          </a>
--->
 
-    <div>
-    <h3>Contact</h3>
-    <br>
-    LEMMON [dot] WARREN [at] GMAIL [dot] com
-    <br>
-    
-<ul class="social"> <!-- find icons here: https://ionicons.com/v2/ -->
-                    <li><a href="https://scholar.google.com/citations?user=lZZIP9UAAAAJ&amp;hl=en&amp;oi=ao" target="blank"><i class="ion-university"></i></a></li>
-                    <li><a href="https://github.com/loeweX" target="blank"><i class="ion-social-github"></i></a></li>
-                    <li><a href="https://twitter.com/sindy_loewe" target="blank"><i class="ion-social-twitter"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/sindy-loewe/" target="blank"><i class="ion-social-linkedin"></i></a></li>
-                </ul>
+        <div>
+          <h3>Contact</h3>
+          <br>
+          LEMMON [dot] WARREN [at] GMAIL [dot] com
+          <br>
+
+          <ul class="social"> <!-- find icons here: https://ionicons.com/v2/ -->
+              <li><a href="https://scholar.google.com/citations?user=b4_8yooAAAAJ&amp;hl=en&amp;oi=ao" target="blank"><i class="ion-university"></i></a></li>
+              <li><a href="https://github.com/wlemmon" target="blank"><i class="ion-social-github"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/lemmonw/" target="blank"><i class="ion-social-linkedin"></i></a></li>
+          </ul>
                 
-</div>
-
         </div>
+
       </div>
-      <!--
-      <div class="cover">
-        <img style="border-radius: 50%;" src="./files/image.jpg" alt="matebook">
-
-        </div>
-        -->
-      </section>
       
+      
+      
+      <div class="beanz" >
+        &#8192<!--beanz-->
+      </div>
+      
+    </section>
+        
+
+  </div><!-- end of div.container -->
+</div><!-- end of div[role=main] -->
+
+<footer role="contentinfo">
+  <!-- <div class="container">
+    <p>Copyright Warren Lemmon., 2015.</p>
+  </div> --><!-- end of div.container -->
+</footer><!-- end of footer[role=contentinfo] -->
+<script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+
+</body>
+</html>
