@@ -185,31 +185,31 @@ section.
 </ol>
 <table>
   <tr>
-   <td><code>exit conda environment</code>
+   <td>exit conda environment
    </td>
    <td><code>conda deactivate</code>
    </td>
   </tr>
   <tr>
-   <td><code>enter correct env</code>
+   <td>exit conda environment
    </td>
    <td><code>conda activate flatland-baseline-cpu-env</code>
    </td>
   </tr>
   <tr>
-   <td><code>change directory</code>
+   <td>change directory
    </td>
    <td><code>cd lemmonw/flatlands/neurips2020-flatland-baselines/</code>
    </td>
   </tr>
   <tr>
-   <td><code>start cluster</code>
+   <td>start cluster
    </td>
    <td><code>yes | ray up tune-default.yaml</code>
    </td>
   </tr>
   <tr>
-   <td><code>send local files to head box</code>
+   <td>send local files to head box
    </td>
    <td><strong><code>ray rsync-up tune-default.yaml
 /home/ubuntu/lemmonw/flatlands/neurips2020-flatland-baselines
@@ -217,24 +217,23 @@ section.
    </td>
   </tr>
   <tr>
-   <td><code>submit job on cluster</code>
+   <td>submit job on cluster
    </td>
    <td><strong><code>ray submit tune-default.yaml train.py --
---ray-address=</code>$(<code>headip):6379 -f
-/home/ubuntu/neurips2020-flatland-baselines/baselines/action_masking_and_skipping/apex_tree_obs_small_v0.yaml</code></strong>
-<code>ray
+--ray-address=$(headip):6379 -f
+/home/ubuntu/neurips2020-flatland-baselines/baselines/action_masking_and_skipping/apex_tree_obs_small_v0.yaml<br>ray
 submit tune-default.yaml mnist_pytorch_trainable.py --
---ray-address=<strong>$(</strong>headip):6379</code>
+--ray-address=$(headip):6379</code></strong>
    </td>
   </tr>
   <tr>
-   <td><code>sometimes ray dashboard tune-default.yaml</code>
+   <td>sometimes ray dashboard tune-default.yaml
 <p>
-<code> doesnt work. do this instead:</code>
+ doesnt work. do this instead:
 <ol>
-<li><code>log into head node</code>
-<li><code>examine dashboard port</code>
-<li><code>ssh into head node, with reverse port forwarding of dashboard</code>
+<li>log into head node
+<li>examine dashboard port
+<li>ssh into head node, with reverse port forwarding of dashboard
 </li>
 </ol>
    </td>
@@ -247,7 +246,7 @@ submit tune-default.yaml mnist_pytorch_trainable.py --
    </td>
   </tr>
   <tr>
-   <td><code>view logs</code>
+   <td>view logs
    </td>
    <td><code>ray exec
 /home/ubuntu/lemmonw/flatlands/neurips2020-flatland-baselines/tune-default.yaml
@@ -255,7 +254,7 @@ submit tune-default.yaml mnist_pytorch_trainable.py --
    </td>
   </tr>
   <tr>
-   <td><code>other commands</code>
+   <td>other commands
    </td>
    <td><code>ray kill-random-node tune-default.yaml --hard</code>
 <p>
@@ -276,7 +275,9 @@ to access TensorBoard.</em></code>
 /home/ubuntu/lemmonw/flatlands/neurips2020-flatland-baselines/ /home/ubuntu/ #
 this will copy all to home directory</code>
 <p>
-<code>ray rsync-down CLUSTER.YAML '~/ray_results' ~/cluster_results</code>
+<strong><code> </code></strong>
+<code>ray rsync-down CLUSTER.YAML
+'~/ray_results' ~/cluster_results</code>
 <p>
 <code>ray down CLUSTER.YAML [-y]</code>
 <p>
@@ -288,6 +289,8 @@ this will copy all to home directory</code>
 <p>
 <code>localhost:8268?ray dashboard</code>
 <p>
+<code> </code>
+<p>
 <code>conda env create -f environment-gpu.yml</code>
 <p>
 <code>ray exec-cmd cluster.yaml "cd /home/ubuntu/baselines; python train.py
@@ -297,55 +300,3 @@ baselines/global_density_obs/sparse_small_apex_expdecay_maxt1000.yaml"</code>
    </td>
   </tr>
 </table>
-<p>
-docker calibre
-</p>
-
-
-<pre
-class="prettyprint">docker run 8083:8083 --name Books technosoft2000/calibre-web
-docker exec -it Books /bin/bash
-docker run -p 8083:8083 -v /home/ec2-user/client_secret:/tmp/client_secret -v /home/ec2-user/gdrive:/books --name Books --restart always technosoft2000/calibre-web &
-mv /tmp/client_secret/client_secret_256402832291-hqcbcc855pqdjv3a38ntrolsu83vil6f.apps.googleusercontent.com.json /calibre-web/app/client_secrets.json
-
-sudo mkdir /data                                                                                                                                       
-sudo mount /dev/nvme1n1 /data 
-jupyter notebook --ip=0.0.0.0 --port=8888
-http://34.216.251.208:8888/tree?token=0113f54fcc75e87c27632a204e6d9aeb72ab8e9d71c37f13
-</pre>
-<p>
-IB mock-headless api:
-</p>
-<p>
-The idea is to have the ec2 instance host the xwindow environment. it is very
-minimal because it does not have a desktop interface -- no kde, no gnome, etc.
-Instead we use xvfb to hold it all. The we start up x11vnc to allow us to
-connect to port 5900 and view the frames. Finally we do port forwarding and
-allow our window’s laptop vncviewer to connect locally on the laptop to port
-5900. n.b. 5900 is the port number used by vnc for display 0.
-</p>
-<p>
-Instructions:
-</p>
-<ol>
-<li>run xvfb, a virtual x frame buffer: <code>nohup Xvfb :0 -ac -screen 0
-1900x1000x24 &</code>
-<li>create imaginary x session on server: <code>sudo nohup /usr/bin/x11vnc
--ncache 10 -ncache_cr -display :0 -forever -shared -logappend
-/var/log/x11vnc.log -bg -noipv6 -localhost > nohupxllvnc.out</code>
-<li>then check the log file to make sure x11vnc was opened on port 5900
-<li>ssh with forward-direction port forwarding 5900: (im using putty for this)
-<li>run tws on this new screen:<code> sudo DISPLAY=:0 /root/Jts/976/tws
-</code>This will launch TWS and connect it to the vfsb
-<li>use tightvnc and connect to 127.0.0.1. That's it!
-</li>
-</ol>
-<p>
-Set up controller and gateway ?
-</p>
-<ol>
-<li>update IBController.ini
-<li>run <code>sudo DISPLAY=:0 ./IBControllerStart.sh </code>which is supposed to
-launch the GUI and log you in...
-<li>
-<li>
